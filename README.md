@@ -1,5 +1,7 @@
 # CORAL 66 Compiler
 
+> **Work in Progress** - Lexer and parser functional, codegen coming soon. The Queen's 1976 compiler had a head start.
+
 A modern compiler for CORAL 66 (Computer On-line Real-time Applications Language), written in OCaml. Because someone has to keep the reactors running.
 
 *The first email ever sent by a head of state was Queen Elizabeth II announcing a CORAL 66 compiler in 1976. If the Queen can do release announcements, so can we.*
