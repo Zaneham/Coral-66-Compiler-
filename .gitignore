@@ -1,0 +1,13 @@
+# OCaml/Dune build artifacts
+_build/
+*.install
+*.merlin
+
+# Editor
+.vscode/
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db

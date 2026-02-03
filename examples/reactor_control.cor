@@ -1,0 +1,65 @@
+COMMENT Reactor Control System Example;
+COMMENT CORAL 66 - Ferranti Argus 700;
+COMMENT Based on Official Definition (HMSO 1970);
+
+BEGIN
+    COMMENT Data declarations;
+    INTEGER count, total := 0;
+    FLOATING temperature, pressure;
+    FIXED(16, 8) velocity, acceleration;
+
+    COMMENT Sensor arrays;
+    INTEGER ARRAY readings[0:99];
+    FLOATING ARRAY matrix[1:10, 1:10];
+
+    COMMENT Control table;
+    TABLE sensors[4, 100][
+        id INTEGER 0;
+        value FIXED(16, 8) 1;
+        status UNSIGNED(8) 2, 0
+    ];
+
+    COMMENT Mode switch;
+    SWITCH action := start, process, shutdown;
+
+    COMMENT Square function;
+    INTEGER PROCEDURE square(VALUE INTEGER: x);
+    BEGIN
+        ANSWER x * x
+    END;
+
+    COMMENT Recursive factorial;
+    RECURSIVE INTEGER PROCEDURE factorial(VALUE INTEGER: n);
+    BEGIN
+        IF n <= 1 THEN ANSWER 1
+        ELSE ANSWER n * factorial(n - 1)
+    END;
+
+    COMMENT Initialisation procedure;
+    PROCEDURE initialise;
+    BEGIN
+        count := 0;
+        total := 0;
+        temperature := 0.0
+    END;
+
+    COMMENT Main control loop;
+start:
+    initialise;
+    FOR count := 1 STEP 1 UNTIL 100 DO
+    BEGIN
+        readings[count] := square(count);
+        total := total + readings[count]
+    END;
+
+process:
+    temperature := FLOATING(total) / 100.0;
+    IF temperature > 500.0 THEN
+    BEGIN
+        GOTO shutdown
+    END;
+
+shutdown:
+    COMMENT System shutdown complete;
+    count := 0
+END

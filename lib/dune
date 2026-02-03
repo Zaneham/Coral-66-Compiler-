@@ -1,0 +1,10 @@
+(library
+ (name coral66)
+ (public_name coral66)
+ (libraries str)
+ (preprocess (pps ppx_deriving.show ppx_deriving.eq)))
+
+(ocamllex lexer)
+
+(menhir
+ (modules parser))

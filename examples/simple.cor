@@ -1,0 +1,8 @@
+BEGIN
+    INTEGER x, y := 0;
+    FLOATING z;
+
+    x := 10;
+    y := x + 5;
+    z := 3.14
+END

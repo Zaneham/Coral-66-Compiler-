@@ -1,0 +1,4 @@
+(executable
+ (name main)
+ (public_name coral66c)
+ (libraries coral66 cmdliner))
