@@ -184,6 +184,3 @@ Because safety-critical tooling should be auditable, and anyone maintaining 50-y
 
 ---
 
-*Built with OCaml, caffeine, and a deep appreciation for the engineers who kept Britain's infrastructure running on languages most people have never heard of.*
-
-*"Keep calm and GOTO emergency" - No one, ever, hopefully*
